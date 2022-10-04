@@ -17,9 +17,11 @@
 
 function rotateElem(){
     // let art = document.querySelector(".cover-art.shadow.cover-art--with-auto-height");
-    let art = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > div > a > div > div");
+    const art = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > div > a > div > div");
+    const artBG = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > div > a > div > div");
     document.documentElement.style.setProperty("--rotated", "0deg");
-    art.style.setProperty("border-radius", "100% !important");
+    artBG.style.setProperty("border-radius", "100% !important");
+    artBG.style.setProperty("box-shadow", "none");
     Spicetify.Player.addEventListener("onplaypause", function(){
         console.log(Spicetify.Player.isPlaying());
         let tr = window.getComputedStyle(art, null).getPropertyValue("transform");
