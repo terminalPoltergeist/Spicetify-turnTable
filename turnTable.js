@@ -6,6 +6,7 @@
 
 /// <reference path="../globals.d.ts" />
 
+
 (async function turnTable() {
     if (!(Spicetify.Platform && Spicetify.React)){
         setTimeout(turnTable, 300);
@@ -58,6 +59,25 @@ function rotateElem(){
 }
 
 function initTurnTable(){
+    // const style = document.createElement("style");
+    // style.innerHTML = `
+    //     :root{
+    //         --rotated: 0deg;
+    //     }
+
+    //     .cover-art.shadow.cover-art--with-auto-height {
+    //         border-radius: 100% !important;
+    //     }
+
+    //     @keyframes rotate{
+    //         from{
+    //             transform: rotate(var(--rotated));
+    //         }to{
+    //             transform: rotate(calc(359deg + var(--rotated)));
+    //         }
+    //     }    
+    // `;  
+
     if (!Spicetify.Player.isPlaying()){
         rotateElem();
     }

@@ -1,0 +1,15 @@
+:root{
+    --rotated: 0deg;
+}
+
+.cover-art.shadow.cover-art--with-auto-height {
+    border-radius: 100% !important;
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(var(--rotated));
+    }to{
+        transform: rotate(calc(359deg + var(--rotated)));
+    }
+}
