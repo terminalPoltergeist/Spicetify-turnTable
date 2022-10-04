@@ -1,6 +1,6 @@
 [
   {
-    "name": "turn-table",
+    "name": "turnTable",
     "description": "Spicetify extension to rotate the ablbum art of the current playing track.",
     "preview": "preview.png",
     "main": "turnTable.js",

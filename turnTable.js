@@ -8,7 +8,7 @@
 
 (async function turnTable() {
     if (!(Spicetify.Platform && Spicetify.React)){
-        setTimeout(TurnTable, 300);
+        setTimeout(turnTable, 300);
         return;
     }
     await initTurnTable();
