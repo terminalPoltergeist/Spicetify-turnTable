@@ -1,0 +1,13 @@
+[
+  {
+    "name": "turnTable",
+    "description": "Spicetify extension to rotate the ablbum art of the current playing track.",
+    "preview": "preview.png",
+    "main": "turnTable.js",
+    "readme": "README.md",
+    "authors": [
+        { "name": "terminalPoltergeist", "url": "https://github.com/terminalPoltergeist" }
+    ],
+    "tags": ["album art"]
+  }
+]
