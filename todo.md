@@ -1,1 +1,1 @@
-[ ] isolate styles to js app or inject to the DOM
+- [ ] isolate styles to js app or inject to the DOM
