@@ -4,6 +4,6 @@
 <br />
 <div align="center">
   <a href="https://github.com/terminalPoltergeist/dotfiles">
-    <img src="/assets/header.png" alt="Logo" width="600" height="200">
+    <img src="/assets/header.png" alt="Logo" width="400" height="100">
   </a>
 </div>
