@@ -20,7 +20,7 @@ function rotateElem(){
     const art = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > div > a > div > div");
     const artBG = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > div > a > div > div");
     document.documentElement.style.setProperty("--rotated", "0deg");
-    artBG.style.setProperty("border-radius", "100% !important");
+    // artBG.style.setProperty("border-radius", "100% !important");
     artBG.style.setProperty("box-shadow", "none");
     Spicetify.Player.addEventListener("onplaypause", function(){
         console.log(Spicetify.Player.isPlaying());
