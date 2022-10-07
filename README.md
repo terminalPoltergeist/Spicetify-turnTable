@@ -12,11 +12,11 @@
   <br/>
   <br/>
 <h3>⚙️ Install</h3>
-Copy `turnTable.js` into the Spicetify extensions directory.
+Copy <code>turnTable.js</code> into the Spicetify extensions directory.
 After putting the extension file into the correct folder, run the following command to install the extension:
-```
+<code>
 spicetify config extensions turnTable.js
 spicetify apply
-```
+</code>
 </div>
 
