@@ -1,0 +1,11 @@
+:root{
+    --rotated: 0deg;
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(var(--rotated));
+    }to{
+        transform: rotate(calc(359deg + var(--rotated)));
+    }
+}
