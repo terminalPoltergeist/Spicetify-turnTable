@@ -82,6 +82,27 @@ function initTurnTable(){
     //     }    
     // `;  
 
+    const { React } = Spicetify;
+    const { useState } = React;
+
+    const style = React.createElement(
+        "style",
+        null,
+        `
+        :root{
+            --rotated: 0deg;
+        }
+
+        @keyframes rotate{
+            from{
+                transform: rotate(var(--rotated));
+            }to{
+                transform: rotate(calc(359deg + var(--rotated)));
+            }
+        }
+        `
+    );
+
     if (!Spicetify.Player.isPlaying()){
         rotateElem();
     }
