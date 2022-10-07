@@ -15,20 +15,19 @@
     await initTurnTable();
 })();
 
-function rotateElem(){
-    // let art = document.querySelector(".cover-art.shadow.cover-art--with-auto-height");
-    const art = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > div > a > div > div");
-    const artBG = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > div > a > div > div");
+function rotateElem(elem){
+    let intID = 0; // persistant variable for holding interval id 
+    elem.style.setProperty("border-radius", "100% !important");
     document.documentElement.style.setProperty("--rotated", "0deg");
-    artBG.style.setProperty("border-radius", "100% !important");
-    artBG.style.setProperty("box-shadow", "none");
+    let art = document.querySelector(".cover-art.shadow");
+    art.style.setProperty("box-shadow", "0 0 10pxrgba(var(--spice-rgb-shadow),.3)");
     Spicetify.Player.addEventListener("onplaypause", function(){
-        console.log(Spicetify.Player.isPlaying());
-        let tr = window.getComputedStyle(art, null).getPropertyValue("transform");
+        // computing rotation angle
+        let tr = window.getComputedStyle(elem, null).getPropertyValue("transform");
         if( tr !== "none") {
             var values = tr.split('(')[1];
-              values = values.split(')')[0];
-              values = values.split(',');
+            values = values.split(')')[0];
+            values = values.split(',');
             var a = values[0];
             var b = values[1];
             var c = values[2];
@@ -53,40 +52,30 @@ function rotateElem(){
             var angle = 0;
         }
         if (!Spicetify.Player.isPlaying()){
+            // if playing, set rotation to calculated angle
             document.documentElement.style.setProperty("--rotated", angle + "deg");
-            art.style.setProperty("animation", "rotate 25s infinite linear");
+            // rotation animation
+            intID = setInterval(() =>{
+                elem.style.setProperty("transform", "rotate(" + angle + "deg)"); 
+                angle = angle + 0.1;
+            }, 1);
         }else{
-            art.style.removeProperty("animation");
-            art.style.setProperty("transform", "rotate(" + angle + "deg)");
+            // stop interval
+            clearInterval(intID);
+            // set static rotation to where it stoped
+            elem.style.setProperty("transform", "rotate(" + angle + "deg)");
         }
     });
 }
 
 function initTurnTable(){
-    // const style = document.createElement("style");
-    // style.innerHTML = `
-    //     :root{
-    //         --rotated: 0deg;
-    //     }
-
-    //     .cover-art.shadow.cover-art--with-auto-height {
-    //         border-radius: 100% !important;
-    //     }
-
-    //     @keyframes rotate{
-    //         from{
-    //             transform: rotate(var(--rotated));
-    //         }to{
-    //             transform: rotate(calc(359deg + var(--rotated)));
-    //         }
-    //     }    
-    // `;  
-
     if (!Spicetify.Player.isPlaying()){
-        rotateElem();
+        const art = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > a > div > div");
+        rotateElem(art);
     }
     Spicetify.Player.addEventListener("songchange", function(){
-        rotateElem();
+        const art = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > a > div > div");
+        rotateElem(art);
     });
 }
 
