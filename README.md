@@ -14,12 +14,6 @@
 </div>
 ## ⚙️ Install
 Copy `turnTable.js` into the Spicetify extensions directory.
-| **Platform** | **Path**                                                                               |
-|------------|------------------------------------------------------------------------------------------|
-| **Linux**      | `~/.config/spicetify/Extensions` or `$XDG_CONFIG_HOME/.config/spicetify/Extensions/` |
-| **MacOS**      | `~/.config/spicetify/Extensions` or `$SPICETIFY_CONFIG/Extensions`                   |
-| **Windows**    | `%appdata%/spicetify/Extensions/`                                               |
-
 After putting the extension file into the correct folder, run the following command to install the extension:
 ```
 spicetify config extensions turnTable.js
