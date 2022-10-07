@@ -11,11 +11,12 @@
   <p align="center">Now you don't have to decide between amassing a record collection or using the convenience of Spotify. turnTable transforms Spotify into a 1970's style DJ station.</p>
   <br/>
   <br/>
-</div>
-## ⚙️ Install
+<h3>⚙️ Install</h3>
 Copy `turnTable.js` into the Spicetify extensions directory.
 After putting the extension file into the correct folder, run the following command to install the extension:
 ```
 spicetify config extensions turnTable.js
 spicetify apply
 ```
+</div>
+
