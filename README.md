@@ -17,6 +17,9 @@ After putting the extension file into the correct folder, run the following comm
 <br/>
 <code>
 spicetify config extensions turnTable.js
+</code>
+<br/>
+<code>
 spicetify apply
 </code>
 </div>
