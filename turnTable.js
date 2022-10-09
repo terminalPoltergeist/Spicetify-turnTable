@@ -19,8 +19,8 @@ function rotateElem(elem){
     let intID = 0; // persistant variable for holding interval id 
     document.documentElement.style.setProperty("--rotated", "0deg");
     elem.style.setProperty("border-radius", "100%");
-    // let art = document.querySelector(".cover-art.shadow");
-    // art.style.setProperty("box-shadow", "0 0 10pxrgba(var(--spice-rgb-shadow),.3)");
+    let art = document.querySelector(".cover-art.shadow");
+    art.style.setProperty("box-shadow", "0 0 10pxrgba(var(--spice-rgb-shadow),.3)");
     Spicetify.Player.addEventListener("onplaypause", function(){
         // computing rotation angle
         let tr = window.getComputedStyle(elem, null).getPropertyValue("transform");
@@ -51,7 +51,7 @@ function rotateElem(elem){
         } else {
             var angle = 0;
         }
-        if (Spicetify.Player.isPlaying()){
+        if (!Spicetify.Player.isPlaying()){
             // if playing, set rotation to calculated angle
             document.documentElement.style.setProperty("--rotated", angle + "deg");
             // rotation animation
@@ -73,14 +73,7 @@ function initTurnTable(){
     // cover-art-back.style.setProperty("-webkit-box-shadow", "none !important");
     // cover-art-back.style.setProperty("box-shadow", "none !important");
     const art = document.querySelector(".main-coverSlotExpanded-container .cover-art img");
-    art.style.setProperty("border-radius", "100%");
-    if (Spicetify.Player.isPlaying()){
-        rotateElem(art);
-    }else{
-        Spicetify.Player.addEventListener("songchange", function(){
-            rotateElem(art);
-        });
-    }
-    
+    // art.style.setProperty("border-radius", "100%");
+    rotateElem(art);
 }
 
