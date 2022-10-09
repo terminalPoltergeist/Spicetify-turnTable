@@ -17,7 +17,6 @@
 
 function rotateElem(elem){
     let intID = 0; // persistant variable for holding interval id 
-    elem.style.setProperty("border-radius", "100% !important");
     document.documentElement.style.setProperty("--rotated", "0deg");
     let art = document.querySelector(".cover-art.shadow");
     art.style.setProperty("box-shadow", "0 0 10pxrgba(var(--spice-rgb-shadow),.3)");
@@ -51,7 +50,7 @@ function rotateElem(elem){
         } else {
             var angle = 0;
         }
-        if (!Spicetify.Player.isPlaying()){
+        if (Spicetify.Player.isPlaying()){
             // if playing, set rotation to calculated angle
             document.documentElement.style.setProperty("--rotated", angle + "deg");
             // rotation animation
@@ -69,13 +68,18 @@ function rotateElem(elem){
 }
 
 function initTurnTable(){
-    if (!Spicetify.Player.isPlaying()){
-        const art = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > a > div > div");
+    let cover-art-back = document.querySelector(".cover-art.shadow");
+    cover-art-back.style.setProperty("-webkit-box-shadow", "none !important");
+    cover-art-back.style.setProperty("box-shadow", "none !important");
+    const art = document.querySelector(".cover-art-image");
+    art.style.setProperty("border-radius", "100% !important");
+    if (Spicetify.Player.isPlaying()){
         rotateElem(art);
+    }else{
+        Spicetify.Player.addEventListener("songchange", function(){
+            rotateElem(art);
+        });
     }
-    Spicetify.Player.addEventListener("songchange", function(){
-        const art = document.querySelector("#main > div > div.Root__top-container > nav > div.main-navBar-navBar > div.Foyk_HJx16yh22JYmQ56 > div > div > a > div > div");
-        rotateElem(art);
-    });
+    
 }
 
